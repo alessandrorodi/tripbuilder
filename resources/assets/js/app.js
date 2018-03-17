@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('sl-user-list', require('./components/app/users/UserList.vue'));
+Vue.component('sl-airport-list', require('./components/app/airports/AirportList.vue'));
 
 // Vuex
 import Vuex from 'vuex'

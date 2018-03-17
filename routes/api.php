@@ -20,6 +20,10 @@ $api->version('v1', [
     'middleware' => ['api']
 ], function (Router $api) {
 
+    $api->group(['prefix' => 'airports'], function (Router $api) {
+        $api->get('/all', 'AirportsController@index');
+    });
+
     $api->group(['middleware' => ['auth:api']], function (Router $api) {
 
         // Rate: 100 requests per 5 minutes
@@ -29,14 +33,20 @@ $api->version('v1', [
             $api->group(['prefix' => 'users'], function (Router $api) {
                 $api->get('/', 'UsersController@index');
                 $api->post('/', 'UsersController@store');
-                $api->get('/me', 'UsersController@me');
-                $api->get('/{id}', 'UsersController@show');
-                $api->put('/{id}', 'UsersController@update');
-                $api->delete('/{id}', 'UsersController@destroy');
             });
+
+            $api->group(['prefix' => 'trips'], function (Router $api) {
+                $api->post('/create', 'TripsController@create');
+                $api->post('/{id}/remove', 'TripsController@remove');
+
+                $api->post('/addFlight', 'TripsController@addFlight');
+                $api->post('/removeFlight', 'TripsController@removeFlight');
+            });
+
 
         });
 
     });
+
 
 });

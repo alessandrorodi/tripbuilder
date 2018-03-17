@@ -61,13 +61,7 @@ class UsersController extends BaseController
 
         $user = $this->repository->create($data);
 
-        // throw exception if store failed
-//        throw new StoreResourceFailedException('Failed to store.');
 
-        // A. return 201 created
-//            return $this->response->created(null);
-
-        // B. return data
         return $user;
 
     }

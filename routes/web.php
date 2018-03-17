@@ -20,15 +20,10 @@ Auth::routes();
 // Protected Routes
 Route::group(['middleware' => 'auth'], function () {
 
-//    Route::get('/', function () {
-//        return redirect('users');
-//    });
-
     Route::get('/', 'ExampleController@getIndexExample');
-    Route::get('blank-example', 'ExampleController@getBlankExample');
-    Route::get('desktop-example', 'ExampleController@getDesktopExample');
 
     Route::get('users', 'UserController@getUserList');
+    Route::get('airports', 'AirportController@getAirportList');
 
 });
 

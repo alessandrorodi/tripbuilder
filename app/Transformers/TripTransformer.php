@@ -2,13 +2,13 @@
 
 namespace Someline\Transformers;
 
-use Someline\Models\Foundation\User;
+use Someline\Models\Foundation\Trip;
 
 /**
  * Class UserTransformer
  * @package namespace Someline\Transformers;
  */
-class UserTransformer extends BaseTransformer
+class TripTransformer extends BaseTransformer
 {
 
     /**
@@ -17,15 +17,13 @@ class UserTransformer extends BaseTransformer
      *
      * @return array
      */
-    public function transform(User $model)
+    public function transform(Trip $model)
     {
         return [
-            'user_id' => (int)$model->getUserId(),
-            /* place your other model properties here */
+            'id' => (int)$model->id,
             'name' => $model->name,
-            'email' => $model->email,
+            'userId' => $model->userId,
             'created_at' => (string)$model->created_at,
-            'updated_at' => (string)$model->updated_at
         ];
     }
 }

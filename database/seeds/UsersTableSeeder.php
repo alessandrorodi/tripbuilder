@@ -19,20 +19,20 @@ class UsersTableSeeder extends Seeder
 
         User::create([
 //            'slid' => '1',
-            'name' => "Libern Lin",
-            'email' => 'libern@someline.com',
-            'password' => bcrypt('Abc12345'),
+            'name' => "Alessandro Rodi",
+            'email' => 'momentum@momentum.com',
+            'password' => bcrypt('momentum'),
             'remember_token' => str_random(10),
             'gender' => 'M',
-            'birthday' => '1994-07-08',
+            'birthday' => '1994-09-18',
             'country' => 'CN',
-            'timezone' => 'Asia/Shanghai',
+            'timezone' => 'America/Toronto',
             'locale' => 'en',
-            'username' => 'libern',
+            'username' => 'momentum',
             'phone_number' => '+1234567890',
             'status' => 1,
         ]);
 
-        factory(User::class, 50)->create();
+        factory(User::class, 1)->create();
     }
 }
