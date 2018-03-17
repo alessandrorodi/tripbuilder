@@ -15,4 +15,7 @@ interface AirportRepository extends BaseRepositoryInterface
      * @return $this
      */
     public function byAirportIds($airportIds);
+
+    public function randomizeAirports();
+
 }

@@ -1,8 +1,9 @@
 <?php
 
 namespace Someline\Models\Foundation;
+use Illuminate\Database\Eloquent\Model;
 
-class Trip
+class Trip extends Model
 {
     /**
      * The attributes that are mass assignable.

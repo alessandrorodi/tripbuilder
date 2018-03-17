@@ -22,6 +22,21 @@ $api->version('v1', [
 
     $api->group(['prefix' => 'airports'], function (Router $api) {
         $api->get('/all', 'AirportsController@index');
+        $api->get('/random', 'AirportsController@randomizeAirports');
+        $api->get('/show/{id}', 'AirportsController@show');
+
+    });
+
+    $api->group(['prefix' => 'trips'], function (Router $api) {
+        $api->post('/create', 'TripController@create');
+        $api->post('/{id}/remove', 'TripController@remove');
+
+        $api->post('/addFlight', 'FlightsController@add');
+        $api->post('/removeFlight/{id}', 'FlightsController@remove');
+    });
+
+    $api->group(['prefix' => 'flights'], function (Router $api) {
+        $api->get('/all', 'FlightsController@index');
     });
 
     $api->group(['middleware' => ['auth:api']], function (Router $api) {
@@ -35,13 +50,7 @@ $api->version('v1', [
                 $api->post('/', 'UsersController@store');
             });
 
-            $api->group(['prefix' => 'trips'], function (Router $api) {
-                $api->post('/create', 'TripsController@create');
-                $api->post('/{id}/remove', 'TripsController@remove');
 
-                $api->post('/addFlight', 'TripsController@addFlight');
-                $api->post('/removeFlight', 'TripsController@removeFlight');
-            });
 
 
         });

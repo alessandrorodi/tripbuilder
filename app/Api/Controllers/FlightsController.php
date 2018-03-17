@@ -4,9 +4,8 @@
 namespace Someline\Api\Controllers;
 
 use Someline\Repositories\Interfaces\FlightRepository;
-use Someline\Repositories\Interfaces\TripRepository;
 use Someline\Validators\FlightValidator;
-use Someline\Validators\TripValidator;
+use Someline\Http\Requests\FlightCreateRequest;
 
 class FlightsController extends BaseController
 {
@@ -42,7 +41,7 @@ class FlightsController extends BaseController
     /**
      * Add a newly created resource in storage.
      *
-     * @param  TripCreateRequest $request
+     * @param  FlightCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      */
@@ -51,11 +50,11 @@ class FlightsController extends BaseController
 
         $data = $request->all();
 
-        $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
+        $this->validator->with($data)->passesOrFail(\Prettus\Validator\Contracts\ValidatorInterface::RULE_CREATE);
 
-        $user = $this->repository->create($data);
+        $flight = $this->repository->create($data);
 
-        return $user;
+        return $flight;
 
     }
 

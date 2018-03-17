@@ -2,19 +2,11 @@
 
 namespace Someline\Repositories\Eloquent;
 
-use Someline\Models\Foundation\User;
-use Someline\Presenters\FlightPresenter;
-use Someline\Presenters\TripPresenter;
-use Someline\Presenters\UserPresenter;
+use Someline\Presenters\AirportPresenter;
 use Someline\Repositories\Criteria\RequestCriteria;
 use Someline\Repositories\Interfaces\AirportRepository;
-use Someline\Repositories\Interfaces\FlightRepository;
-use Someline\Repositories\Interfaces\TripRepository;
-use Someline\Repositories\Interfaces\UserRepository;
-use Someline\Validators\FlightValidator;
-use Someline\Validators\TripValidator;
-use Someline\Validators\UserValidator;
-
+use Someline\Validators\AirportValidator;
+use Someline\Models\Foundation\Airport;
 /**
  * Class UserRepositoryEloquent
  * @package namespace Someline\Repositories\Eloquent;
@@ -28,7 +20,7 @@ class AirportRepositoryEloquent extends BaseRepository implements AirportReposit
      */
     public function model()
     {
-        return Flight::class;
+        return Airport::class;
     }
 
     /**
@@ -39,7 +31,7 @@ class AirportRepositoryEloquent extends BaseRepository implements AirportReposit
     public function validator()
     {
 
-        return FlightValidator::class;
+        return AirportValidator::class;
     }
 
     /**
@@ -49,7 +41,7 @@ class AirportRepositoryEloquent extends BaseRepository implements AirportReposit
      */
     public function presenter()
     {
-        return FlightPresenter::class;
+        return AirportPresenter::class;
     }
 
     /**
@@ -70,5 +62,11 @@ class AirportRepositoryEloquent extends BaseRepository implements AirportReposit
     {
         $this->model = $this->model->whereIn('id', $airportIds);
         return $this;
+    }
+
+
+    public function randomizeAirports(){
+        $this->model = $this->model->inRandomOrder()->limit(100)->get();
+        return $this->parserResult($this->model);
     }
 }

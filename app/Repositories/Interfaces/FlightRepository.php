@@ -5,7 +5,7 @@ namespace Someline\Repositories\Interfaces;
 use Someline\Repositories\Interfaces\BaseRepositoryInterface;
 
 /**
- * Interface UserRepository
+ * Interface FlightRepository
  * @package namespace Someline\Repositories\Interfaces;
  */
 interface FlightRepository extends BaseRepositoryInterface

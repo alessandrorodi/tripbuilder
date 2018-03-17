@@ -35,7 +35,13 @@ class AirportsController extends BaseController
      */
     public function index()
     {
-        return $this->repository->all();
+        $airports = $this->repository->all();
+        return $airports;
+    }
+
+    public function randomizeAirports(){
+        $airports = $this->repository->randomizeAirports();
+        return $airports;
     }
 
 

@@ -1,5 +1,9 @@
 <?php
-class Flight
+namespace Someline\Models\Foundation;
+use Illuminate\Database\Eloquent\Model;
+
+
+class Flight extends Model
 {
     /**
      * The attributes that are mass assignable.

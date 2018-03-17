@@ -2,7 +2,7 @@
 
 namespace Someline\Transformers;
 
-use Someline\Models\Foundation\Flight;
+use Someline\Models\Foundation\Airport;
 
 /**
  * Class UserTransformer
