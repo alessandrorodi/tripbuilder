@@ -2,14 +2,11 @@
 
 namespace Someline\Repositories\Eloquent;
 
-use Someline\Models\Foundation\User;
+use Someline\Models\Foundation\Trip;
 use Someline\Presenters\TripPresenter;
-use Someline\Presenters\UserPresenter;
 use Someline\Repositories\Criteria\RequestCriteria;
 use Someline\Repositories\Interfaces\TripRepository;
-use Someline\Repositories\Interfaces\UserRepository;
 use Someline\Validators\TripValidator;
-use Someline\Validators\UserValidator;
 
 /**
  * Class UserRepositoryEloquent
@@ -57,7 +54,7 @@ class TripRepositoryEloquent extends BaseRepository implements TripRepository
     }
 
     /**
-     * @param array|Collection $userIds
+     * @param array|Collection tripIds
      * @return $this
      */
     public function byTripIds($tripIds)
@@ -65,4 +62,6 @@ class TripRepositoryEloquent extends BaseRepository implements TripRepository
         $this->model = $this->model->whereIn('id', $tripIds);
         return $this;
     }
+
+
 }

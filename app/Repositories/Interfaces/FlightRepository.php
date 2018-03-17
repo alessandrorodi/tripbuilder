@@ -15,4 +15,11 @@ interface FlightRepository extends BaseRepositoryInterface
      * @return $this
      */
     public function byFlightIds($flightIds);
+
+    /**
+     * @param $tripId
+     * @return mixed all flights for specific trip
+     */
+    public function listFlightsPerTrip($tripId);
 }
+

@@ -39,18 +39,6 @@ class TripsController extends BaseController
 
 
 
-    /**
-     * List the flights from this trip
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function listFlights($id)
-    {
-        return $this->repository->listFlightsForTrip($id);
-    }
-
 
     /**
      * Adds a flight to a trip

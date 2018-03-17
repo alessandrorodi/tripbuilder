@@ -16,3 +16,5 @@ interface TripRepository extends BaseRepositoryInterface
      */
     public function byTripIds($tripIds);
 }
+
+

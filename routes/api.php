@@ -28,8 +28,10 @@ $api->version('v1', [
     });
 
     $api->group(['prefix' => 'trips'], function (Router $api) {
-        $api->post('/create', 'TripController@create');
-        $api->post('/{id}/remove', 'TripController@remove');
+        $api->post('/create', 'TripsController@create');
+        $api->post('/{id}/remove', 'TripsController@remove');
+
+        $api->get('/{id}/showFlights', 'FlightsController@listFlights');
 
         $api->post('/addFlight', 'FlightsController@add');
         $api->post('/removeFlight/{id}', 'FlightsController@remove');

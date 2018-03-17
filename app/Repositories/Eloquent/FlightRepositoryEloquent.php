@@ -93,4 +93,15 @@ class FlightRepositoryEloquent extends BaseRepository implements FlightRepositor
         $this->model = $this->model->whereIn('tripId', $tripId);
         return $this;
     }
+
+    /**
+     * Returns all the flights for a specific trip
+     * @param int tripId
+     * @return $this
+     */
+    public function listFlightsPerTrip($tripId)
+    {
+        $this->model = $this->model->join('trips',"trips.id",'=',"flights.tripId","inner")->get();
+        return $this->parserResult($this->model);
+    }
 }

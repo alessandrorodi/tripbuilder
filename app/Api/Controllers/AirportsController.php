@@ -39,6 +39,10 @@ class AirportsController extends BaseController
         return $airports;
     }
 
+    /**
+     * Returns a list of 100 random airports taken from the list
+     * @return list of randomized airports
+     */
     public function randomizeAirports(){
         $airports = $this->repository->randomizeAirports();
         return $airports;
