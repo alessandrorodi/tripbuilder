@@ -2,7 +2,7 @@
 
 
 
-TripBuilder is a RESTful API that makes managing trips customers a breeze.
+TripBuilder is a RESTful API that makes managing trips for customers a breeze.
 
   - Powered by Laravel, the PHP framework for Web artisans
   - Back-end and front-end completely separated from each other.
@@ -111,13 +111,84 @@ This endpoint is used so we can select a fromAirport and a toAirport for a relev
       }
     });
   ```
+### Show the details of a specific Airport
+* **URL**
+
+  `/airports/show/{id}`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+    `id` - the id of the Airport to get the details for
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** `200`
+    **Content:** `{...}`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: "/airports/random",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
+  
+  
+### Create a Trip
+* **URL**
+
+  `/trips/create`
+
+* **Method:**
+
+  `Post`
+  
+*  **URL Params**
+
+    None
+
+* **Data Params**
+
+    `name` - the trip's name
+
+* **Success Response:**
+
+  * **Code:** `200`
+    **Content:** `{...}`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: "/trips/create",
+      dataType: "json",
+      type : "POST",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
+
 
 ### List all the flights of a trip
 Lists all the flights for a specific trip with the `id`
 
 * **URL**
 
-  /trips/allFlights/{id}
+  /trips/{id}/showFlights
 
 * **Method:**
 
@@ -140,7 +211,7 @@ Lists all the flights for a specific trip with the `id`
 
   ```javascript
     $.ajax({
-      url: "/trips/allFlights",
+      url: "/trips/5/showFlights",
       dataType: "json",
       type : "GET",
       success : function(r) {
@@ -153,7 +224,7 @@ Lists all the flights for a specific trip with the `id`
 Adds a flight for a specific trip.
 * **URL**
 
-  /trips/{id}/addFlight
+  /trips/addFlight
 
 * **Method:**
 
@@ -161,10 +232,11 @@ Adds a flight for a specific trip.
   
 *  **URL Params**
 
-    `id` - the trip id to add the flight to.
+    None
 
 * **Data Params**
 
+    `tripId` - the id of the trip to add the flight to
     `fromAirport` - the airport to depart from
     `toAirport` - the airport to arrive at
 
@@ -177,7 +249,7 @@ Adds a flight for a specific trip.
 
   ```javascript
     $.ajax({
-      url: "/trips/5/addFlight",
+      url: "/trips/addFlight",
       dataType: "json",
       type : "POST",
       success : function(r) {
@@ -221,7 +293,43 @@ Removes a flight for a specific trip
       }
     });
   ```
+  
+### Get all flights in the database
+Returns all the flights associated with any trip  
 
+* **URL**
+
+  /flights/all
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+    None
+
+* **Data Params**
+
+    None
+
+* **Success Response:**
+
+  * **Code:** `200`
+    **Content:** `{all flights}`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: "/flights/all",
+      dataType: "json",
+      type : "POST",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
 # Web app
 
 This app is accessible at: 

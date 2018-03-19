@@ -21,7 +21,6 @@ $api->version('v1', [
 ], function (Router $api) {
 
     $api->group(['prefix' => 'airports'], function (Router $api) {
-        $api->get('/all', 'AirportsController@index');
         $api->get('/random', 'AirportsController@randomizeAirports');
         $api->get('/show/{id}', 'AirportsController@show');
 
@@ -41,23 +40,7 @@ $api->version('v1', [
         $api->get('/all', 'FlightsController@index');
     });
 
-    $api->group(['middleware' => ['auth:api']], function (Router $api) {
 
-        // Rate: 100 requests per 5 minutes
-        $api->group(['middleware' => ['api.throttle'], 'limit' => 100, 'expires' => 5], function (Router $api) {
-
-            // /users
-            $api->group(['prefix' => 'users'], function (Router $api) {
-                $api->get('/', 'UsersController@index');
-                $api->post('/', 'UsersController@store');
-            });
-
-
-
-
-        });
-
-    });
 
 
 });
