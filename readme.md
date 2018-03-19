@@ -80,7 +80,7 @@ This endpoint is used so we can select a fromAirport and a toAirport for a relev
 
 * **URL**
 
-  `/airports/random`
+  `http://tripbuilder.us-east-2.elasticbeanstalk.com/api/airports/random`
 
 * **Method:**
 
@@ -909,7 +909,7 @@ This endpoint is used so we can select a fromAirport and a toAirport for a relev
 
   ```javascript
     $.ajax({
-      url: "/airports/random",
+      url: "http://tripbuilder.us-east-2.elasticbeanstalk.com/api/airports/random",
       dataType: "json",
       type : "GET",
       success : function(r) {
@@ -920,7 +920,7 @@ This endpoint is used so we can select a fromAirport and a toAirport for a relev
 ### Show the details of a specific Airport
 * **URL**
 
-  `/airports/show/{id}`
+  `http://tripbuilder.us-east-2.elasticbeanstalk.com/api/airports/show/{id}`
 
 * **Method:**
 
@@ -955,7 +955,7 @@ This endpoint is used so we can select a fromAirport and a toAirport for a relev
 
   ```javascript
     $.ajax({
-      url: "/airports/show/7",
+      url: "http://tripbuilder.us-east-2.elasticbeanstalk.com/api/airports/show/7",
       dataType: "json",
       type : "GET",
       success : function(r) {
@@ -970,7 +970,7 @@ Lists all the flights for a specific trip with the `id`
 
 * **URL**
 
-  /trips/{id}/showFlights
+  `http://tripbuilder.us-east-2.elasticbeanstalk.com/api/trips/{id}/showFlights`
 
 * **Method:**
 
@@ -1006,7 +1006,7 @@ Lists all the flights for a specific trip with the `id`
 
   ```javascript
     $.ajax({
-      url: "/trips/5/showFlights",
+      url: "http://tripbuilder.us-east-2.elasticbeanstalk.com/api/trips/5/showFlights",
       dataType: "json",
       type : "GET",
       success : function(r) {
@@ -1019,7 +1019,7 @@ Lists all the flights for a specific trip with the `id`
 Adds a flight for a specific trip.
 * **URL**
 
-  /trips/addFlight
+  `http://tripbuilder.us-east-2.elasticbeanstalk.com/api/trips/addFlight`
 
 * **Method:**
 
@@ -1055,7 +1055,7 @@ Adds a flight for a specific trip.
 
   ```javascript
     $.ajax({
-      url: "/trips/addFlight",
+      url: "http://tripbuilder.us-east-2.elasticbeanstalk.com/api/trips/addFlight",
       data: { tripId : 5, fromAirport: "CYUL", toAirport: "SA20" },
       dataType: "json",
       type : "POST",
@@ -1069,7 +1069,7 @@ Adds a flight for a specific trip.
 Removes a flight for a specific trip
 * **URL**
 
-  /flights/remove
+  `http://tripbuilder.us-east-2.elasticbeanstalk.com/api/flights/remove`
 
 * **Method:**
 
@@ -1092,7 +1092,7 @@ Removes a flight for a specific trip
 
   ```javascript
     $.ajax({
-      url: "/flights/remove/4",
+      url: "http://tripbuilder.us-east-2.elasticbeanstalk.com/api/flights/remove/4",
       dataType: "json",
       type : "POST",
       success : function(r) {
@@ -1106,7 +1106,7 @@ Returns all the flights associated with any trip
 
 * **URL**
 
-  /flights/all
+  `http://tripbuilder.us-east-2.elasticbeanstalk.com/api/flights/all`
 
 * **Method:**
 
@@ -1149,9 +1149,9 @@ Returns all the flights associated with any trip
 
   ```javascript
     $.ajax({
-      url: "/flights/all",
+      url: "http://tripbuilder.us-east-2.elasticbeanstalk.com/apiflights/all",
       dataType: "json",
-      type : "POST",
+      type : "GET",
       success : function(r) {
         console.log(r);
       }
