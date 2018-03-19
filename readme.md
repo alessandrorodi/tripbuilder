@@ -1077,7 +1077,7 @@ Removes a flight for a specific trip
   
 *  **URL Params**
 
-    None
+   `id` - the id of the flight to remove
 
 * **Data Params**
 
