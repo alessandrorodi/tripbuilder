@@ -1,6 +1,6 @@
 # TripBuilder
 
-This app is accessible at: http://tripbuilder.us-east-2.elasticbeanstalk.com/api/
+This app is accessible on AWS. Example : http://tripbuilder.us-east-2.elasticbeanstalk.com/api/airports/random
 
 TripBuilder is a RESTful API that makes managing trips for customers a breeze.
 
